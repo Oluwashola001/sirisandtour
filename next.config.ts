@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // The 'devIndicators' options you tried are causing errors in this version.
+  // We will remove them to fix the build.
 };
 
 export default nextConfig;
