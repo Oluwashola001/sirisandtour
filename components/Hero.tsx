@@ -53,7 +53,6 @@ export default function Hero() {
       <div className="absolute inset-0 bg-linear-to-t from-[#1a1614] via-transparent to-[#1a1614]/40" />
 
       {/* 3. Main Content */}
-      {/* Changed pt-32 to pt-24 md:pt-32 for better mobile spacing */}
       <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-4 pb-12 pt-24 md:pt-32">
         
         <motion.div
@@ -62,6 +61,11 @@ export default function Hero() {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="flex flex-col items-center"
         >
+          {/* NEW: Mobile-only Intro Text - Reverted to Light & Italic style */}
+          <span className="text-[#d4af37] italic text-lg mb-2 md:hidden font-playfair font-light tracking-wide">
+            Your Journey Begins With
+          </span>
+
           {/* Reduced text-5xl to text-4xl on mobile */}
           <h1 className="text-4xl md:text-8xl font-playfair font-bold text-[#E5D3B3] mb-6 drop-shadow-2xl leading-none tracking-tight">
             SIRI SAND
@@ -72,17 +76,16 @@ export default function Hero() {
           </h1>
 
           {/* Reduced text-base to text-sm on mobile */}
-          <p className="text-[#fff9ef] text-sm md:text-lg max-w-2xl font-light mb-8 md:mb-6 leading-relaxed px-4">
+          <p className="text-[#E5D3B3] text-sm md:text-lg max-w-2xl font-light mb-8 md:mb-6 leading-relaxed px-4">
             Explore Egypt’s iconic landmarks and hidden gems with S2S. From Luxor and Aswan 
             to Siwa’s oases and Alexandria’s coastline, enjoy memorable trips with premium comfort 
             and personalized service.
           </p>
 
-          {/* Stats Grid - Adjusted gaps for mobile */}
+          {/* Stats Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 md:gap-16 w-full max-w-4xl px-4">
             {stats.map((stat, i) => (
               <div key={i} className="flex flex-col items-center">
-                {/* Reduced text-2xl to text-xl on mobile */}
                 <span className="text-xl md:text-3xl font-playfair text-[#E5D3B3] mb-1">
                   {stat.value}
                 </span>

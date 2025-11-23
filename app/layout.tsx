@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Lato } from "next/font/google";
+import { Cormorant_Garamond, Lato } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+// Swapped Playfair for Cormorant Garamond (The "Beautifier")
+// We keep the variable name '--font-playfair' so your existing code (font-playfair) works automatically.
+const garamond = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-playfair", 
   display: "swap",
 });
 
@@ -27,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${lato.variable} antialiased`}>
+      <body className={`${garamond.variable} ${lato.variable} antialiased`}>
         {children}
       </body>
     </html>

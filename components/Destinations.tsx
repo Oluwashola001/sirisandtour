@@ -9,56 +9,56 @@ const destinations = [
   {
     id: 1,
     name: "Cairo",
-    image: "/images/destinations/cairo.png",
+    image: "/images/destinations/cairo.webp", 
     tours: "5 Tours",
     desc: "Experience the vibrant energy of Egypt's capital, from historic mosques to the bustling Khan el-Khalili market.",
   },
   {
     id: 2,
     name: "Giza",
-    image: "/images/destinations/giza.png",
+    image: "/images/destinations/giza.webp", 
     tours: "4 Tours",
     desc: "Stand before the Great Pyramids and the Sphinx, the timeless guardians of ancient history.",
   },
   {
     id: 3,
     name: "Luxor",
-    image: "/images/destinations/luxor.png",
+    image: "/images/destinations/luxor.webp", 
     tours: "2 Tours",
     desc: "Explore the majestic temples and tombs of Luxor, including the Valley of the Kings and Karnak Temple.",
   },
   {
     id: 4,
     name: "Aswan",
-    image: "/images/destinations/aswan.png",
+    image: "/images/destinations/aswan.webp", 
     tours: "1 Tour",
     desc: "Discover the serene beauty of Aswan with guided tours to Philae Temple, the High Dam, and Nubian villages.",
   },
   {
     id: 5,
     name: "Siwa Oasis",
-    image: "/images/destinations/siwa.png",
+    image: "/images/destinations/siwa.webp", 
     tours: "1 Tour",
     desc: "Experience the tranquil charm of Siwa Oasis, featuring crystal-clear springs and deep-rooted Berber culture.",
   },
   {
     id: 6,
     name: "Alexandria",
-    image: "/images/destinations/alexandria.png",
+    image: "/images/destinations/alexandria.webp", 
     tours: "1 Tour",
     desc: "Discover the coastal charm of Alexandria with guided tours to ancient libraries and Roman ruins.",
   },
   {
     id: 7,
     name: "Ain Sokhna",
-    image: "/images/destinations/sokhna.png",
+    image: "/images/destinations/sokhna.webp", 
     tours: "1 Tour",
     desc: "Relax by the Red Sea in Ain Sokhna, known for its beautiful beaches and clear waters.",
   },
   {
     id: 8,
     name: "Fayoum",
-    image: "/images/destinations/fayoum.png",
+    image: "/images/destinations/fayoum.webp", 
     tours: "1 Tour",
     desc: "Uncover Fayoum’s charm with guided tours through its serene lakes, desert landscapes, and archaeology.",
   },
@@ -68,10 +68,12 @@ export default function Destinations() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="py-20 md:py-32 bg-[#1a1614] overflow-hidden font-lato relative z-10">
+    // UPDATED: Reduced pb-8 to pb-2 on mobile. 
+    // pt-20 reduced to pt-16 for tighter mobile top spacing as well.
+    <section className="pt-16 md:pt-32 pb-2 md:pb-8 bg-[#1a1614] overflow-hidden font-lato relative z-10">
       
       {/* Section Header */}
-      <div className="max-w-7xl mx-auto px-6 mb-12 md:mb-20 text-center">
+      <div className="max-w-7xl mx-auto px-6 mb-10 md:mb-20 text-center">
         <motion.span 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -101,12 +103,11 @@ export default function Destinations() {
       </div>
 
       {/* Infinite Scroll Track */}
-      {/* We duplicate the array to create a seamless loop */}
       <div 
         className="flex w-full"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        onClick={() => setIsPaused(!isPaused)} // Click to toggle pause on mobile
+        onClick={() => setIsPaused(!isPaused)} 
       >
         <motion.div
           className="flex gap-6 md:gap-8 px-4"
@@ -116,7 +117,7 @@ export default function Destinations() {
           transition={{
             repeat: Infinity,
             ease: "linear",
-            duration: 60, // Slower speed for better readability
+            duration: 60, 
             repeatType: "loop",
           }}
           style={{ 
@@ -131,7 +132,6 @@ export default function Destinations() {
             >
               {/* Image Container */}
               <div className="relative h-[65%] w-full overflow-hidden">
-                {/* Fallback color if image is missing */}
                 <div className="absolute inset-0 bg-stone-800 animate-pulse" />
                 <Image
                   src={dest.image}
@@ -166,7 +166,8 @@ export default function Destinations() {
       </div>
 
       {/* Pause Hint (Mobile Only) */}
-      <p className="text-center text-stone-600 text-[10px] uppercase tracking-widest mt-8 md:hidden opacity-50">
+      {/* UPDATED: Reduced margin top from mt-8 to mt-4 to tighten mobile spacing */}
+      <p className="text-center text-stone-600 text-[10px] uppercase tracking-widest mt-4 md:hidden opacity-50">
         Tap card to pause
       </p>
 

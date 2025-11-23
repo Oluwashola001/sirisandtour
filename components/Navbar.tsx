@@ -88,9 +88,11 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-[#1a1614] flex flex-col items-center justify-center gap-10 md:hidden"
+            // Added 'overflow-y-auto' to allow scrolling on small screens
+            // Added 'pb-10' for bottom spacing
+            className="fixed inset-0 z-40 bg-[#1a1614] flex flex-col items-center justify-start pt-32 pb-10 gap-8 md:hidden overflow-y-auto"
           >
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-6">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
@@ -114,7 +116,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }} 
               animate={{ opacity: 1 }} 
               transition={{ delay: 0.5 }}
-              className="mt-8 px-10 py-4 rounded-full bg-stone-600 text-white font-bold tracking-widest uppercase text-sm shadow-lg active:scale-95 transition-transform cursor-pointer"
+              className="mt-4 px-10 py-4 rounded-full bg-stone-600 text-white font-bold tracking-widest uppercase text-sm shadow-lg active:scale-95 transition-transform cursor-pointer shrink-0"
             >
               Book Now
             </motion.button>

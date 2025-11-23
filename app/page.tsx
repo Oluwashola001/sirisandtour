@@ -1,6 +1,11 @@
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Destinations from "@/components/Destinations";
+import TrendingTours from "@/components/TrendingTours";
+import ExperienceCta from "@/components/ExperienceCta";
+import Reviews from "@/components/Reviews";
+import FinalCta from "@/components/FinalCta";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -8,11 +13,13 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Destinations />
+      <TrendingTours />
+      <ExperienceCta />
+      <Reviews />
+      <FinalCta />
       
-      {/* Spacer for next section */}
-      <div className="h-screen flex flex-col items-center justify-center bg-[#1a1614] text-stone-500">
-        <p>Next Section: Tours / About / Contact</p>
-      </div>
+      {/* The Footer Component replaces the "Coming Soon" text */}
+      <Footer />
     </main>
   );
 }
